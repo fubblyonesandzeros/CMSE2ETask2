@@ -15,6 +15,9 @@ class QuarkGluonClassificationDataset(Dataset):
         return self.x.shape[0]
 
     def __getitem__(self, index):
+        x = x.float()
+        y = y.float()
+        
         x = self.x[index]
         y = self.y[index]
 
