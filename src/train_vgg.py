@@ -8,11 +8,7 @@ from argparse import ArgumentParser
 
 
 if __name__ == "__main__":
-    parser = ArgumentParser()
     
-    args = parser.parse_args()
-    workdir = args.dir
-
     train_files = [
         (f"/kaggle/input/ml4sci2data2/QCDToGGQQ_IMGjet_RH1all_jet0_run1_n47540_X_chunk_{i+1}.npy", f"/kaggle/input/ml4sci2data2/QCDToGGQQ_IMGjet_RH1all_jet0_run1_n47540_Y_chunk_{i+1}.npy")
         for i in range(4)
