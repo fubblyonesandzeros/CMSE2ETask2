@@ -73,26 +73,17 @@ class VGG(nn.Module):
             VGGBlock(in_channels=in_channels, out_channels=64, dropout=dropout, type="2"),
             VGGBlock(in_channels=64, out_channels=128, dropout=dropout, type="2"),
             VGGBlock(in_channels=128, out_channels=256, dropout=dropout, type="2"),
-            VGGBlock(in_channels=128, out_channels=256, dropout=dropout, type="3"),
             VGGBlock(in_channels=256, out_channels=512, dropout=dropout, type="3"),
+            VGGBlock(in_channels=512, out_channels=512, dropout=dropout, type="3"),
             VGGBlock(in_channels=512, out_channels=512, dropout=dropout, type="3"),
         )
 
         self.fc = nn.Sequential(
-            nn.Linear(7*7*512, 4096),
-            nn.Dropout(dropout),
-            nn.ReLU(),
-
-            nn.Linear(4096, 4096),
-            nn.Dropout(dropout),
-            nn.ReLU(),
-
-            nn.Linear(4096, classes)
+            nn.Linear(512, classes)
         )
 
     def forward(self, x):
         x = self.layers(x)
         x = x.view(x.shape[0], -1)
-
         x = self.fc(x)
         return x
