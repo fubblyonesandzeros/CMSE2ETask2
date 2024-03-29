@@ -19,10 +19,9 @@ class QuarkGluonClassificationDataset(Dataset):
         x = self.x[index]
         y = self.y[index]
 
-        x = x.float()
-        y = y.float()
-
         x = torch.from_numpy(x).permute(2, 1, 0)
         x = (x - self.min)/(self.max - self.min)
+
+        x = x.float()
 
         return x, y
