@@ -24,4 +24,4 @@ class QuarkGluonClassificationDataset(Dataset):
 
         x = x.float()
 
-        return x, y
+        return x, int(y)
