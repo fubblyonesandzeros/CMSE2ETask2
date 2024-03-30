@@ -50,7 +50,6 @@ if __name__ == "__main__":
         ResNet(
             in_channels=3, 
             dropout=.2, 
-            classes=2,
             depth=8
         ),
         hidden_size=128,
