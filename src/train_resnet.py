@@ -36,13 +36,13 @@ if __name__ == "__main__":
 
     train = DataLoader(
         train,
-        batch_size=128,
+        batch_size=64,
         shuffle=True,
     )
 
     test = DataLoader(
         test,
-        batch_size=128,
+        batch_size=64,
         shuffle=False
     )
 
