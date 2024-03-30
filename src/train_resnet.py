@@ -59,7 +59,7 @@ if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     net.to(device)
-    optimiser = torch.optim.Adam(net.parameters(), lr=3e-4)
+    optimiser = torch.optim.Adam(net.parameters(), lr=3e-5)
 
     lossfn = nn.CrossEntropyLoss()
 
